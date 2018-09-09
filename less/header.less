@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: @grey;
+    padding: 2px 25px 2px 6px;
+
+    a {
+        color: @white;
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 190px;
+
+        &-notifications {
+            a {
+                padding: 2px 2px 2px 20px;
+
+                sup {
+                    background-color: @green;
+                    padding: 1px 6px;
+                    font-size: 14px;
+                    line-height: 20px;
+                    letter-spacing: 0.35px;
+                    position: relative;
+                    .border-radius(10px);
+
+                    &::before {
+                        content: "";
+                        width: 16px;
+                        height: 20px;
+                        position: absolute;
+                        left: -20px;
+                        top: 9px;
+                        background: url(../image/notify.png) no-repeat center center;
+                    }
+                }
+            }
+        }
+    }
+}

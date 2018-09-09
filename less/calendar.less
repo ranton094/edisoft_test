@@ -1,0 +1,316 @@
+.calendar {
+    height: 100%;
+
+    &-col {
+        padding: 30px 0;
+    }
+
+    &__left {
+        width: 82%;
+
+        &-breadcrumbs {
+            color: @grey-4;
+            font-size: 16px;
+            line-height: 20px;
+            letter-spacing: 0.4px;
+            margin-bottom: 30px;
+
+            .delimiter {
+                margin: 0 15px;
+            }
+        }
+
+        &-heading {
+            margin-bottom: 42px;
+        }
+
+        &-days {
+            .days__header {
+                &-top {
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 30px;
+
+                    .route {
+                        display: flex;
+                        align-items: center;
+
+                        &__person,
+                        select {
+                            .border-solid(1px, @grey-2);
+                            font-size: 16px;
+                            line-height: 20px;
+                            letter-spacing: 0.4px;
+                            color: @grey;
+                            margin: 0;
+
+                        }
+
+                        &__person {
+                            .border-radius(3px 0 0 3px);
+                            padding-left: 14px;
+                            height: 36px;
+                            max-width: 262px;
+                        }
+
+                        select {
+                            appearance: none;
+                            height: 36px;
+                            max-width: 80px;
+                            padding: 0 20px 0 16px;
+                            background: url(../image/dropdown-grey.png) no-repeat bottom 11px right 7px;
+                            margin-right: 30px;
+                            .border-radius(0 3px 3px 0);
+
+                            option {}
+                        }
+
+                        &__add {
+                            color: @grey;
+                            padding-left: 29px;
+                            position: relative;
+
+                            &::before {
+                                position: absolute;
+                                content: "+";
+                                width: 20px;
+                                height: 20px;
+                                font-size: 18px;
+                                line-height: 20px;
+                                font-weight: 700;
+                                letter-spacing: 0.45px;
+                                color: @white;
+                                background-color: @green;
+                                display: inline-block;
+                                text-align: center;
+                                .border-radius(50%);
+                                left: 0;
+                                top: -1px;
+                            }
+                        }
+                    }
+
+                    .period {
+                        span {
+                            margin-right: 10px;
+                        }
+
+                        select {
+                            padding-right: 20px;
+                            padding-left: 3px;
+                            background: url(../image/dropdown-grey.png) no-repeat bottom 6px right 10px;
+                            border: none;
+                            border-bottom: 2px solid @grey-2;
+                            color: @grey;
+                            max-width: 85px;
+                        }
+                    }
+                }
+
+                &-bottom {
+                    text-align: center;
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 40px;
+                    letter-spacing: 0.4px;
+
+                    .month {
+                        margin-bottom: 23px;
+
+                        &__arrow {
+
+                            &:first-child {
+                                margin-right: 30px;
+                            }
+
+                            &:last-child {
+                                margin-left: 30px;
+                            }
+                        }
+                    }
+
+                    .week {
+                        border-bottom: 1px solid @grey-2;
+
+                        &--top {
+                            border-bottom: 3px solid @grey-2;
+                        }
+
+                        &__day,
+                        &__date {
+                            text-align: left;
+                            padding-left: 15px;
+                            padding-bottom: 7px;
+                            color: @grey;
+                            font-size: 16px;
+                            font-weight: 400;
+                            line-height: 20px;
+                            letter-spacing: 0.24px;
+                        }
+
+                        &__date {
+                            padding: 5px 13px 30px 15px;
+                            height: 115px;
+
+                            &:hover {
+                                background-color: @grey-3;
+                            }
+
+                            &--many {
+                                padding-bottom: 0;
+                            }
+
+                            span {
+                                margin-bottom: 5px;
+                                display: inline-block;
+                            }
+
+                            &-route {
+                                letter-spacing: 0.3px;
+                                font-size: 12px;
+                                position: relative;
+                                padding-left: 10px;
+                                cursor: pointer;
+                                display: flex;
+                                align-items: center;
+
+                                &:not(:last-child) {
+                                    margin-bottom: 5px;
+                                }
+
+                                &::before {
+                                    display: block;
+                                    width: 5px;
+                                    height: 100%;
+                                    content: "";
+                                    position: absolute;
+                                    left: 0;
+                                    border-radius: 5px;
+                                }
+                            }
+
+                            &-route.fullday {
+                                line-height: 55px;
+                            }
+
+                            &-route.holidays {
+
+                                &::before {
+                                    background-color: @orange;
+                                }
+                            }
+
+                            &-route.office {
+
+                                &::before {
+                                    background-color: @grey;
+                                }
+                            }
+
+                            &-route.drive {
+                                line-height: 15px;
+
+                                &::before {
+                                    background-color: @green;
+                                }
+                            }
+
+                            &-showall {
+                                letter-spacing: 0.3px;
+                                font-size: 12px;
+                                line-height: 12px;
+                                padding-bottom: 30px;
+                                display: flex;
+                                color: @grey;
+
+                                &:hover {
+                                    color: @green;
+                                }
+                            }
+                        }
+
+                        &__date.not-current {
+                            color: @grey-4;
+
+                            .week__date-route {
+                                &::before {
+                                    background-color: @grey-2;
+                                }
+                            }
+                        }
+
+                        &__date.today {
+                            color: @green;
+                            background-color: @grey-3;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__right {
+        background-color: @grey-3;
+        color: @grey;
+        width: 18%;
+        padding: 30px;
+
+        h2 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            letter-spacing: 0.6;
+        }
+
+        .month {
+            margin-bottom: 23px;
+
+            span {
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            &__week {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
+
+                &-day {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    font-size: 12px;
+                    line-height: 20px;
+                    letter-spacing: 0.3px;
+
+                    &:hover {
+                        border: 1px solid @green;
+                        .border-radius(3px);
+                    }
+                }
+
+                &-day.heading,
+                &-day.empty,
+                &-day.today {
+                    &:hover {
+                        border: none;
+                        cursor: default;
+                    }
+                }
+
+                &-day.heading {
+                    color: @grey-4;
+                    cursor: default;
+                }
+
+                &-day.today {
+                    color: @green;
+                }
+
+
+            }
+        }
+    }
+}
